@@ -1,0 +1,65 @@
+<div class = "container">
+    <div class="row">
+    <div class = " col-lg-8 col-sm-8">
+        <table class = "table table-striped">
+            <thead>
+                <tr>
+                    <th>sepallength</th>
+                    <th>sepalwidth</th>
+                    <th>petallength</th>
+                    
+                    <th>petalwidth</th>
+                    <th>classification</th>
+                    <th>CRUD</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let dataIris of datas">
+                    <td>{{dataIris.petallength}}</td>
+                    <td>{{dataIris.petalwidth}}</td>
+                    <td>{{dataIris.sepallength}}</td>
+                    <td>{{dataIris.sepalwidth}}</td>
+                    <td>{{dataIris.classification}}</td>
+                  
+                    
+               <td>
+                <i type="button"class="fa fa-edit cursor-pointer" title="Edite Utilisateur" (click)="edit(dataIris)"></i>
+                <i class="fa fa-trash ms-2 cursor-pointer" title="delete Utilisateur"></i>
+            </td> 
+            </tbody>
+        </table>
+       
+    </div>
+    <div class = " col-lg-4 col-sm-4"  style="border: rgb(139, 0, 0) solid 1px;height: 600px;padding: 30px;">
+      
+            <h3>{{irisData.id? 'Modifier':'Ajouter'}} IrisData</h3>
+            <form class="mt-3" (ngSubmit)="save()">
+              <div class="mb-2 form-floating">
+                <input id="nom" type="text" placeholder="sepalwidth" name="nom" class="form-control" [(ngModel)]="irisData.sepalwidth">
+                <label for="nombre">sepalwidth</label>
+              </div>
+              <div class="mb-2 form-floating">
+                <input id="Username" type="text" placeholder="sepallength" name="Username" class="form-control"  [(ngModel)]="irisData.sepallength">
+                <label for="Username">sepallength</label>
+              </div>      
+            <div class="mb-2 form-floating">
+              <input id="email" type="email" placeholder="petalwidth" name="email" class="form-control"  [(ngModel)]="irisData.petalwidth">
+              <label for="email">petalwidth</label>
+            </div>
+              <div class="mb-2 form-floating">
+                <input id="Password" type="text" placeholder="petallength" name="Password" class="form-control"  [(ngModel)]="irisData.petallength">
+                <label for="Password">petallength</label>
+              </div>
+              <div class="mb-2 form-floating">
+                <input id="classification" type="text" name="classification" placeholder="classification" class="form-control"  [(ngModel)]="irisData.classification">
+                <label for="classification">Classification</label>
+              </div>
+              <div class="text-end" style="text-align: center;"> 
+              <button class="btn btn-danger btn-md">{{irisData.id? 'Modifier':'Ajouter'}}</button>
+              </div>
+            </form>
+        
+      
+    </div>
+</div>
+</div>

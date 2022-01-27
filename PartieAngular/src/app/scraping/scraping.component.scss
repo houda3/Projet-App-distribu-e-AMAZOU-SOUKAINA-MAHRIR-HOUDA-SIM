@@ -1,0 +1,17 @@
+.container {
+    margin-top: 50px
+}
+
+.btn:hover {
+    color: #fff
+}
+
+.input-text:focus {
+    box-shadow: 0px 0px 0px;
+    border-color: rgb(139, 0, 0);
+    outline: 0px
+}
+
+.form-control {
+    border: 1px solid rgb(139, 0, 0)
+}

@@ -1,0 +1,32 @@
+<div class = "container">
+    <div class = "row col-lg-12 col-sm-12">
+        <table class = "table table-striped">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Prenom</th>
+                    <th>Nom</th>
+                    
+                    <th>Password</th>
+                    <th>CRUD</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let utilisateur of utilisateurs">
+                    <td>{{utilisateur.username}}</td>
+                    <td>{{utilisateur.nom}}</td>
+                    <td>{{utilisateur.email}}</td>
+                    
+                    <td>{{utilisateur.pass}}</td>
+                    <td>
+                        <i class="fa fa-trash ms-2 cursor-pointer" title="delete Utilisateur" (click) = "removeUser(utilisateur.username)"></i>
+                    
+                    </td>
+                   
+            </tbody>
+        </table>
+        <div>
+            <button class="btn btn-danger" [routerLink]="'/Gestion Users'">Ajouter utilisateurs</button>
+        </div>
+    </div>
+</div>

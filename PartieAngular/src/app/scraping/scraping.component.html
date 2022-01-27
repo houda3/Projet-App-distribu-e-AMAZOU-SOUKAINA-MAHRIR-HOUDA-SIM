@@ -1,0 +1,120 @@
+<!-- <div class="container justify-content-center">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="input-group mb-3"> 
+                <input type="text" class="form-control input-text" placeholder="Search url for scraping...." aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                     <button class="btn btn-outline-danger btn-md" type="button" (ngSubmit)="getUrlScraping()"><i class="fa fa-search"></i></button> </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+      
+      <div class="col-8">
+        <div class="form-group">
+          <textarea class="form-control mt-2" id="htmlResponse" rows="24">{{HtmlData}}</textarea>
+        </div>
+      </div>
+    </div>
+</div> -->
+
+
+  <div class="row">
+    <div class="col">
+      <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+          <form class="form-inline mt-2 mt-md-0 mx-auto" (ngSubmit)="getDataHtml()">
+            <div class="input-group mb-3"> 
+            <input id="url" class="form-control mr-sm-2 input-text" style="width: 450px;"type="text" placeholder="Copier URL pour scraping..." name="url"
+              [(ngModel)]="item.url">
+              <div class="input-group-append">
+            <button class="btn btn-outline-danger btn-md my-2 my-sm-0"><i class="fa fa-search"></i></button>
+          </div>
+          </div>
+          </form>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <!-- HTML response view -->
+    <div class="col-8">
+      <div class="form-group">
+        <textarea class="form-control mt-2" id="htmlResponse" rows="24">{{dataHtml}}</textarea>
+      </div>
+    </div>
+
+    <!-- Extract data view -->
+    <div class="col-4">
+
+      <!-- Add tag card -->
+      <div class="card mt-2">
+        <form (ngSubmit)="paramettres()">
+          <div class="card-body">
+
+            <!-- Filter tags -->
+            <div class="form-group">
+
+
+              <!-- Hiden input to store current URL -->
+              <input type="text" value="" name="url" hidden>
+
+              <!-- Tag table-->
+              <table class="table" id="tags">
+                <thead>
+                  <tr>
+                    <th scope="col">Balise</th>
+                    <th scope="col">Classe</th>
+                    <th scope="col">Attribute</th>
+                    <th scope="col"></th>
+                  </tr>
+                  <h6>Species</h6>
+                  <tr id="-1">
+                    <td><input id="balise" class="form-control" type="text" value="small" name="balise" [(ngModel)]="item.balise1"></td>
+                    <td><input class="form-control" type="text" value="autor" name="classe" [(ngModel)]="item.classe1"></td>
+                    <td><input class="form-control" type="text" value="dd" name="attr" [(ngModel)]="item.attribute1"></td>
+                  </tr>
+                  <h6>Sepal width</h6>
+                  <tr id="-1">
+                    <td><input id="balise" class="form-control" type="text" value="small" name="balise" [(ngModel)]="item.balise2"></td>
+                    <td><input class="form-control" type="text" value="autor" name="classe" [(ngModel)]="item.classe2"></td>
+                    <td><input class="form-control" type="text" value="dd" name="attr" [(ngModel)]="item.attribute2"></td>
+                  </tr>
+                  <h6>Petal length</h6>
+                  <tr id="-1">
+                    <td><input id="balise" class="form-control" type="text" value="small" name="balise" [(ngModel)]="item.balise3"></td>
+                    <td><input class="form-control" type="text" value="autor" name="classe" [(ngModel)]="item.classe3"></td>
+                    <td><input class="form-control" type="text" value="dd" name="attr" [(ngModel)]="item.attribute3"></td>
+                  </tr>
+                  <h6>Petal width</h6>
+                  <tr id="-1">
+                    <td><input id="balise" class="form-control" type="text" value="small" name="balise" [(ngModel)]="item.balise4"></td>
+                    <td><input class="form-control" type="text" value="autor" name="classe" [(ngModel)]="item.classe4"></td>
+                    <td><input class="form-control" type="text" value="dd" name="attr" [(ngModel)]="item.attribute4"></td>
+                  </tr>
+                  <h6>Sepal_length</h6>
+                  <tr id="-1">
+                    <td><input id="balise" class="form-control" type="text" value="small" name="balise" [(ngModel)]="item.balise5"></td>
+                    <td><input class="form-control" type="text" value="autor" name="classe" [(ngModel)]="item.classe5"></td>
+                    <td><input class="form-control" type="text" value="dd" name="attr" [(ngModel)]="item.attribute5"></td>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+            <!-- Add button -->
+            <button class="btn btn-danger col-sm" >Scraper data</button>
+          </div>
+        </form>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,87 @@
+<div class="project">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-danger text-light">
+    <a class="navbar-brand mr-5" routerLink="codeforinterview">Data Analysis et clustering</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li *ngIf="!authentifictionService.isLogged()" class="nav-item">
+          <a  routerLink="login" class="nav-link"><i class="fa fa-fw fa-sign-in" style="margin-right: 5px;"></i>connecter</a>
+        </li>
+        
+        <li *ngIf="authentifictionService.isLogged()" class="nav-item">
+          <a class="nav-link" (click)="logout()"><i class="fa fa-fw fa-sign-out" style="margin-right: 5px;"></i>Se déconnecter</a>
+      </li>
+         
+      </ul>
+    </div>
+  </nav>
+
+  <!----------------------------------Dashbord-->
+
+  <div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar" *ngIf="authentifictionService.isLogged()">
+        <div class="sidebar-header">
+            <h3>Tableau de bord</h3>
+        </div>
+  
+        <ul class="list-unstyled components">
+            
+            <li class="nav-item">
+                <a routerLink="/Home" data-toggle="collapse" aria-expanded="false" class="nav-link" ><i class="fa fa-fw fa-home" style="margin-right: 5px;"></i>Page d'accueil</a>
+            </li>
+            
+            <li *ngIf="authentifictionService.isLogged()">
+                <a class="nav-link" routerLink="Gestion Users" data-toggle="collapse" aria-expanded="false" ><i class="fa fa-fw fa-users"style="margin-right: 5px;"></i>Gestion des utilisateurs</a>
+            </li>
+            
+        <li class="nav-item" *ngIf="authentifictionService.isLogged()">
+          <a class="nav-link" routerLink="all-users"><i class="fa fa-fw fa-list" style="margin-right: 5px;"></i>Liste utilisateurs</a>
+        </li>
+            <li>
+              <a routerLink="search" class="nav-link"><i class="fa fa-fw fa-search" style="margin-right: 5px;"></i>Chercher</a>
+          </li>
+            <li>
+                <a class="nav-link" routerLink="register"><i class="fa fa-fw fa-address-card"style="margin-right: 5px;"></i>Register</a>
+            </li>
+            <hr>
+            <li class="nav-item">
+              <a routerLink="scraping" class="nav-link" >Scraping</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="" class="nav-link" >Clustring</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/ScrapedData" class="nav-link" >Gestion des données</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/ScrapedData" class="nav-link" >Statistiques</a>
+    </li>
+        
+            <!-- <li *ngIf="authentifictionService.isLogged()" class="nav-item">
+              <a class="nav-link" (click)="logout()">Logout</a>
+          </li>
+          <li *ngIf="!authentifictionService.isLogged()" class="nav-item">
+            <a  routerLink="login" class="nav-link">Login</a>
+          </li> -->
+        </ul>
+  
+        <ul class="list-unstyled CTAs">
+          <li *ngIf="authentifictionService.isLogged()" class="nav-item">
+            <a class="nav-link" (click)="logout()"><i class="fa fa-fw fa-sign-out" style="margin-right: 5px;"></i>Se déconnecter</a>
+        </li>
+        </ul>
+    </nav>
+  
+    <!-- Page Content  -->
+    <div id="content">
+       <router-outlet></router-outlet>
+    </div>
+  </div>
+
+</div>
+
